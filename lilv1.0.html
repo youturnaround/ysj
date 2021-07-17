@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        //定义一个函数
+        function calc() {
+            //1.获取存款金额(读取文本框中的数据)
+            var cunkuanjine = document.getElementById("amount").value;
+            //把"8000""变为8000
+            var cunkuannum = parseFloat(cunkuanjine);
+            //2.取得年利率
+            var lilv = document.getElementById("year").value;
+            //  var shijian = document.getElementById("time").value;
+            var shijian = document.getElementById("time").value;
+            var lixi = cunkuannum * lilv * shijian;
+            var total = cunkuannum + lixi;
+            document.getElementById("lixi").value = lixi;
+            document.getElementById("total").value = total;
+            //开始计算
+            //把计算结果放入相应的文本框 用户可看到
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1>个人网银-个人存款计算器</h1>
+        <table class="table table-bordered text-center text-center">
+            <tr class="bg-primary">
+                <td colspan="2">个人存款计算器</td>
+            </tr>
+            <tr>
+                <td>
+                    存款金额
+                </td>
+                <td>
+                    <input class="form-control" type="text" id="amount" placeholder="请输入存款金额">
+                </td>
+            </tr>
+            <!--   <tr>
+                <td>
+                    存款时间
+                </td>
+                <td>
+                    <select id="time" class="form-control">
+                        <option value="1">一年</option>
+                        <option value="2">两年</option>
+                        <option value="3">三年</option>
+                        <option value="4">四年</option>
+                        <option value="5">五年</option>
+                    </select>
+                </td>
+            </tr>-->
+            <tr>
+                <td>
+                    存款时间
+                </td>
+                <td>
+                    <input class="form-control" placeholder="请输入存款的年数" id="time" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    存款年限
+                </td>
+                <td>
+                    <select id="year" class="form-control">
+                        <option value="0.0175">一年(1.75%)</option>
+                        <option value="0.0225">二年(2.25%)</option>
+                        <option value="0.0275">三年(2.75%) </option>
+                        <option value="0.0275">四年(2.75%)</option>
+                        <option value="0.0275">五年(2.75%)</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>所得利息</td>
+                <td>
+                    <input type="text" id="lixi" class="form-control" readonly="readonly">
+                </td>
+            </tr>
+            <tr>
+                <td>本息合计</td>
+                <td><input type="text" id="total" class="form-control" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="calc()" class="btn btn-primary btn-block">计算</button>
+                </td>
+            </tr>
+            </tr>
+        </table>
+        开发者：2013040443张子良中北大学软件学院2020级
+    </div>
+</body>
+
+</html>
